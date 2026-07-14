@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: poker-u-ulukbeka
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && corepack prepare pnpm@10.28.1 --activate && pnpm install --frozen-lockfile=false
+    startCommand: node server.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20.20.2
